@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reader</title>
+    <style>
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+          Helvetica Neue, Arial, Noto Sans, sans-serif;
+        font-size: 62.5%;
+      }
+      body {
+        color: #4a4a4a;
+        background-color: #f9f9f9;
+        max-width: 38em;
+        margin: auto;
+        padding: 13px;
+        font-size: 1.8rem;
+        line-height: 1.618;
+      }
+      @media (max-width: 684px) {
+        body {
+          font-size: 1.53rem;
+        }
+      }
+      @media (max-width: 382px) {
+        body {
+          font-size: 1.35rem;
+        }
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        word-break: break-word;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+          Helvetica Neue, Arial, Noto Sans, sans-serif;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      h1 {
+        font-size: 2.35em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1.75em;
+      }
+      h4 {
+        font-size: 1.5em;
+      }
+      h5 {
+        font-size: 1.25em;
+      }
+      h6 {
+        font-size: 1em;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+      }
+      small,
+      sub,
+      sup {
+        font-size: 75%;
+      }
+      hr {
+        border-color: #1d7484;
+      }
+      a {
+        color: #1d7484;
+        text-decoration: none;
+      }
+      a:visited {
+        color: #144f5a;
+      }
+      a:hover {
+        color: #982c61;
+        border-bottom: 2px solid #4a4a4a;
+      }
+      ul {
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+        padding-left: 1.4em;
+      }
+      li {
+        margin-bottom: 0.4em;
+      }
+      blockquote {
+        background-color: #f1f1f1;
+        border-left: 5px solid #1d7484;
+        margin-bottom: 2.5rem;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.8em 0.8em 0.8em 1em;
+      }
+      blockquote p {
+        margin-bottom: 0;
+      }
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+      }
+      pre {
+        background-color: #f1f1f1;
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+        padding: 1em;
+        font-size: 0.9em;
+        display: block;
+        overflow-x: auto;
+      }
+      code,
+      kbd,
+      samp {
+        white-space: pre-wrap;
+        background-color: #f1f1f1;
+        padding: 0 0.5em;
+        font-size: 0.9em;
+      }
+      pre > code {
+        white-space: pre;
+        background-color: #0000;
+        padding: 0;
+        font-size: 1em;
+      }
+      table {
+        text-align: justify;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      td,
+      th {
+        border-bottom: 1px solid #f1f1f1;
+        padding: 0.5em;
+      }
+      input,
+      textarea {
+        border: 1px solid #4a4a4a;
+      }
+      input:focus,
+      textarea:focus {
+        border: 1px solid #1d7484;
+      }
+      textarea {
+        width: 100%;
+      }
+      .button,
+      button,
+      input[type="submit"],
+      input[type="reset"],
+      input[type="button"] {
+        text-align: center;
+        white-space: nowrap;
+        color: #f9f9f9;
+        cursor: pointer;
+        box-sizing: border-box;
+        background-color: #1d7484;
+        border: 1px solid #1d7484;
+        border-radius: 1px;
+        padding: 5px 10px;
+        text-decoration: none;
+        display: inline-block;
+      }
+      input[type="file"]::file-selector-button {
+        text-align: center;
+        white-space: nowrap;
+        color: #f9f9f9;
+        cursor: pointer;
+        box-sizing: border-box;
+        background-color: #1d7484;
+        border: 1px solid #1d7484;
+        border-radius: 1px;
+        padding: 5px 10px;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .button[disabled],
+      button[disabled],
+      input[type="submit"][disabled],
+      input[type="reset"][disabled],
+      input[type="button"][disabled] {
+        cursor: default;
+        opacity: 0.5;
+      }
+      .button:hover,
+      button:hover,
+      input[type="submit"]:hover,
+      input[type="reset"]:hover,
+      input[type="button"]:hover {
+        color: #f9f9f9;
+        background-color: #982c61;
+        outline: 0;
+      }
+      input[type="file"]::file-selector-button:hover {
+        color: #f9f9f9;
+        background-color: #982c61;
+        outline: 0;
+      }
+      .button:focus-visible,
+      button:focus-visible,
+      input[type="submit"]:focus-visible,
+      input[type="reset"]:focus-visible,
+      input[type="button"]:focus-visible {
+        outline-width: 2px;
+        outline-style: solid;
+      }
+      input[type="file"]::file-selector-button:focus-visible {
+        outline-width: 2px;
+        outline-style: solid;
+      }
+      textarea,
+      select,
+      input {
+        color: #4a4a4a;
+        box-shadow: none;
+        box-sizing: border-box;
+        background-color: #f1f1f1;
+        border: 1px solid #f1f1f1;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 6px 10px;
+      }
+      textarea:focus,
+      select:focus,
+      input:focus {
+        border: 1px solid #1d7484;
+        outline: 0;
+      }
+      input[type="checkbox"]:focus {
+        outline: 1px dotted #1d7484;
+      }
+      label,
+      legend,
+      fieldset {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        display: block;
+      }
+      [c] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/" method="get">
+      <div c>
+        <input name="url" type="text" placeholder="url" />
+        <button type="submit">Go</button>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@postlight/parser": "^2.2.3",
+    "dompurify": "^3.0.6",
+    "fastify": "^4.24.3",
+    "handlebars": "^4.7.8",
+    "jsdom": "^23.0.0",
+    "marked": "^11.0.0"
+  }
+}
