@@ -29,22 +29,20 @@ async function parseURL(url) {
   });
 }
 
-fastify.get("/", (req, res) => {
+fastify.get("/", async (req, res) => {
   const url = req.query["url"];
 
   if (url) {
-    return parseURL(url).then((result) =>
-      res.headers({"content-type": "text/html"}).send(result)
-    );
+    const result = await parseURL(url);
+    return res.headers({"content-type": "text/html"}).send(result);
   }
   res.headers({"content-type": "text/html"}).send(INDEX_HTML);
 });
 
 fastify.get("*", async (request, res) => {
   const url = request.url.substring(1);
-  return parseURL(url).then((result) =>
-    res.headers({"content-type": "text/html"}).send(result)
-  );
+  const result = await parseURL(url);
+  return res.headers({"content-type": "text/html"}).send(result);
 });
 
 // Run the server
