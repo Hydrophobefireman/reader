@@ -47,7 +47,7 @@ fastify.get("*", async (request, res) => {
 
 // Run the server
 fastify.listen(
-  {port: process.env.PORT || 3000, host: "0.0.0.0"},
+  {port: process.env.PORT || 8080, host: "0.0.0.0"},
   (err, address) => {
     if (err) {
       console.error(err);
