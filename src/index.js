@@ -4,7 +4,7 @@ import fs from "node:fs";
 import {extensions, imageProxy} from "./image-proxy.js";
 import {generateReaderView} from "./reader.js";
 
-const fastify = Fastify();
+const fastify = Fastify({logger: true});
 const INDEX_HTML = fs.readFileSync("html/index.html").toString();
 
 fastify.get("/", async ({query}, res) => {
