@@ -1,4 +1,4 @@
-FROM node:21-alpine3.17
+FROM node:20-alpine3.18
 
 WORKDIR /app
 
@@ -8,4 +8,4 @@ RUN npm i
 
 ENTRYPOINT [  ]
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "src/index.js" ]

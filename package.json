@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "fastify": "^4.24.3",
     "handlebars": "^4.7.8",
     "jsdom": "^23.0.0",
-    "marked": "^11.0.0"
+    "marked": "^11.0.0",
+    "sharp": "^0.33.0"
   }
 }

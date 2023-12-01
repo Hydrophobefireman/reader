@@ -14,7 +14,7 @@
         with pkgs;
         {
           devShells.default = mkShell {
-            buildInputs = [ flyctl nodejs ];
+            buildInputs = [ flyctl nodejs_20 ];
           };
         }
       );
