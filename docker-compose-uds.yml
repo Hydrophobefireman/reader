@@ -8,5 +8,6 @@ services:
       dockerfile: Dockerfile.uds
     environment:
       - PORT=8080
+      - PROXY_IMAGES=1
     volumes:
       - ./sockets:/sockets/
