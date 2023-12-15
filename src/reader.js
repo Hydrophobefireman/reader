@@ -15,21 +15,23 @@ const TEMPLATE = Handlebars.compile(
 const window = new JSDOM("").window;
 const DOMPurify = createDOMPurify(window);
 
-const md = PROXY_IMAGES
-  ? marked.use({
-      renderer: {
-        image(href, title, text) {
-          return `<img
-                    src="/__/proxy?href=${encodeURIComponent(href)}"
-                    alt="${text}"${title ? `\ntitle="${title}"` : ""}
-                />`;
-        },
-      },
-    })
-  : marked;
 export async function generateReaderView(url) {
   const res = await Parser.parse(url, {contentType: "markdown"});
   const domain = res.domain.replace("www.", "");
+  const md = PROXY_IMAGES
+    ? marked.use({
+        renderer: {
+          image(href, title, text) {
+            return `<img
+                    src="/__/proxy?href=${encodeURIComponent(
+                      new URL(href, url)
+                    )}"
+                    alt="${text}"${title ? `\ntitle="${title}"` : ""}
+                />`;
+          },
+        },
+      })
+    : marked;
   return TEMPLATE({
     ...res,
     domain,

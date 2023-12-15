@@ -8,7 +8,7 @@ const fastify = Fastify({logger: true});
 const INDEX_HTML = fs.readFileSync("html/index.html").toString();
 
 fastify.get("/", async ({query}, res) => {
-  const url = query["url"];
+  const {url} = query;
 
   if (url) {
     const result = await generateReaderView(url);

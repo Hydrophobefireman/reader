@@ -1,5 +1,6 @@
 import process from "node:process";
 
-export const PROXY_IMAGES = ![undefined, "no", "false", "0", "n"].includes(
-  process.env.PROXY_IMAGES?.toLowerCase()
-);
+function CONFIG_ENABLED(x) {
+  return ![undefined, "no", "false", "0", "n"].includes(x?.toLowerCase());
+}
+export const PROXY_IMAGES = CONFIG_ENABLED(process.env.PROXY_IMAGES);
