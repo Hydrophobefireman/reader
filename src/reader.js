@@ -24,7 +24,7 @@ export async function generateReaderView(url) {
           image(href, title, text) {
             return `<img
                     src="/__/proxy?href=${encodeURIComponent(
-                      new URL(href, url)
+                      new URL(href, res.url)
                     )}"
                     alt="${text}"${title ? `\ntitle="${title}"` : ""}
                 />`;

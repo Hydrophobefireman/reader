@@ -1,7 +1,7 @@
 http:// {
-    bind unix//sockets/reader.sock
-    encode gzip
-    reverse_proxy localhost:8080 {
+	bind unix//sockets/reader.sock
+	encode gzip
+	reverse_proxy localhost:8080 {
 		header_up Host localhost
 	}
 }
