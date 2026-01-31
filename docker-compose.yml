@@ -5,9 +5,10 @@ services:
     init: true
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.uds
     environment:
       - PORT=8080
-    ports:
-      - 8080:8080
+      - PROXY_IMAGES=1
+    volumes:
+      - ./sockets:/sockets/
     restart: unless-stopped
